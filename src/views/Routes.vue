@@ -3,7 +3,7 @@
     <h2>{{ $t("routes") }}</h2>
     <div
       :style="{
-        gridTemplateColumns: getGridColumnSize,
+        gridTemplateColumns: `repeat(${routesOptions.length},1fr)`,
       }"
       class="justify-content-center d-grid row my-5 routes"
     >
@@ -32,13 +32,8 @@ export default defineComponent({
         { name: "Route 2", path: ["Street1", "Street2", "Street3"] },
         { name: "Route 3", path: ["Street1", "Street2", "Street3"] },
       ],
+      routesLength: 3,
     };
-  },
-  computed: {
-    getGridColumnSize() {
-      const length = this.routesOptions.length;
-      return `repeat(${length},1fr)`;
-    },
   },
   methods: {
     selectRoute(route: any) {
