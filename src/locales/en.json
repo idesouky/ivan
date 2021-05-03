@@ -1,0 +1,11 @@
+{
+  "destination": "Enter Destination",
+  "routes": "Routes",
+  "tripInfo": {
+    "name": "Trip Info.",
+    "id": "#ID",
+    "destination": "Destination Stop",
+    "route": "Route Name",
+    "confirm": "Confirm"
+  }
+}

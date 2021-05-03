@@ -1,6 +1,8 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from "vue-router";
 import Home from "../views/Home.vue";
 import Destination from "../views/Destination.vue";
+import Routes from "../views/Routes.vue";
+import CheckoutInfo from "../views/CheckoutInfo.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -12,6 +14,16 @@ const routes: Array<RouteRecordRaw> = [
     path: "/destination",
     name: "Destination",
     component: Destination,
+  },
+  {
+    path: "/routes",
+    name: "Routes",
+    component: Routes,
+  },
+  {
+    path: "/checkout",
+    name: "Checkout",
+    component: CheckoutInfo,
   },
   // {
   //   path: "/destination",

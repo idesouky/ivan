@@ -21,6 +21,7 @@ import Button from "@/components/iButton.vue";
 import { useStore } from "vuex";
 import store from "@/store";
 import router from "@/router";
+import i18n from "@/i18n";
 
 export default defineComponent({
   components: {
@@ -28,7 +29,11 @@ export default defineComponent({
   },
   methods: {
     selectLanguage(lang: string) {
+      if (lang == "ar") {
+        document.documentElement.style.direction = "rtl";
+      }
       store.commit("setLanguage", lang);
+      i18n.global.locale = lang;
       router.push("destination");
     },
   },

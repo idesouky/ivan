@@ -1,6 +1,6 @@
 $primary: #134e9e;
 $secondary: #ffaf00;
-
+$shadow: rgba(#000, 0.2);
 $colors: () !default;
 
 $colors: map-merge(
@@ -25,4 +25,5 @@ $weights: (
   @each $name, $color in $colors {
     --ivan-#{$name}: #{$color};
   }
+  --ivan-shadow: #{$shadow};
 }

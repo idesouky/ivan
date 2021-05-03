@@ -1,0 +1,11 @@
+{
+  "destination": "ادخل الوجهة",
+  "routes": "الطرق",
+  "tripInfo": {
+    "name": "تفاصيل الرحلة",
+    "id": "#ID",
+    "destination": "الوجهة",
+    "route": "الطريق",
+    "confirm": "تأكيد"
+  }
+}

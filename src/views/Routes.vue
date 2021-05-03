@@ -1,0 +1,77 @@
+<template>
+  <div class="fullscreen p-5">
+    <h2>{{ $t("routes") }}</h2>
+    <div
+      :style="{
+        gridTemplateColumns: getGridColumnSize,
+      }"
+      class="justify-content-center d-grid row my-5 routes"
+    >
+      <ul
+        @click="selectRoute(route)"
+        v-for="route of routesOptions"
+        :key="route"
+      >
+        <li>{{ route.name }}</li>
+        <li v-for="path in route?.path" :key="path">{{ path }}</li>
+      </ul>
+    </div>
+  </div>
+</template>
+
+<script lang="ts">
+import router from "@/router";
+import store from "@/store";
+import { defineComponent } from "vue";
+
+export default defineComponent({
+  data() {
+    return {
+      routesOptions: [
+        { name: "Route 1", path: ["Street1", "Street2", "Street3"] },
+        { name: "Route 2", path: ["Street1", "Street2", "Street3"] },
+        { name: "Route 3", path: ["Street1", "Street2", "Street3"] },
+      ],
+    };
+  },
+  computed: {
+    getGridColumnSize() {
+      const length = this.routesOptions.length;
+      return `repeat(${length},1fr)`;
+    },
+  },
+  methods: {
+    selectRoute(route: any) {
+      store.commit("setRoute", route);
+      router.push("checkout");
+    },
+  },
+});
+</script>
+
+<style lang="scss">
+.routes {
+  grid-template-columns: repeat(3, 1fr);
+  column-gap: 0.5rem;
+}
+ul {
+  margin: 0 !important;
+  padding: 0 !important;
+  list-style: none;
+  background: var(--ivan-secondary);
+  cursor: pointer;
+  transition: all ease-in-out 0.1s;
+  &:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 1rem 0.2rem var(--ivan-shadow);
+  }
+  li {
+    &:first-child {
+      background: var(--ivan-primary);
+      color: #fff;
+      padding: 0.5rem;
+    }
+    padding: 1rem 0.3rem;
+  }
+}
+</style>
